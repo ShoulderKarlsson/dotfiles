@@ -16,7 +16,7 @@ URxvt.clipboard.autocopy:       true
 URxvt*cursorColor: #FFFFFF
 
 #define _bg    [97]#312e39
-#define bg    #1E192C
+#define bg    #1B1727
 #define blk   #33303b
 #define fg    #c0a79a
 #define bblk  #4f4b58

@@ -1,4 +1,5 @@
 filetype off
+" Amazing comment
 
 
 " ################################################
@@ -13,12 +14,11 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-surround'
-Plugin 'vim-airline/vim-airline'
-Plugin 'valloric/youcompleteme'
 Plugin 'tpope/vim-commentary'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'NLKNGuyen/papercolor-theme'
+Plugin 'valloric/youcompleteme'
+Plugin 'mileszs/ack.vim'
 
 " ################################################
 " Javascript
@@ -28,63 +28,37 @@ Plugin 'mxw/vim-jsx'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'peitalin/vim-jsx-typescript'
 Plugin 'alvan/vim-closetag'
-Plugin 'prettier/vim-prettier', {'do': 'yarn install'}
+Plugin 'prettier/vim-prettier', {'do': 'npm install'}
 call vundle#end()
 
-
 " ################################################
-" Misc
+" Native configurations
 " ################################################
+filetype plugin indent on
 set relativenumber
 set nocompatible
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set expandtab 
-filetype plugin indent on
 set autoindent
-set cursorline
 set wildmenu
 set noswapfile
-
-" ################################################
-" Theme Customization
-" ################################################
-" set termguicolors
 syntax enable
-" Fix for tmux
-set t_Co=256
-set background=dark
-colorscheme PaperColor
 
+" ################################################
 " Custom bindings
+" ################################################
 let mapleader = ','
 nmap <Leader>c gcc
 nmap <C-b> :NERDTreeToggle<CR>
-
-" Splitted window navigation
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-
-nnoremap <Leader>gt :YcmCompleter GetType<CR>
-nnoremap <Leader>fd :YcmCompleter GoToDefinition<CR>
+nnoremap <Leader>gd :YcmCompleter GoToDefinition<CR>
 nnoremap <Leader>rn :YcmCompleter RefactorRename 
-
-
-
-" let g:ale_fixers = {
-
-" ################################################
-" ALE
-" ################################################
-" let g:ale_fixers = {
-" \   'javascript': ['eslint', 'prettier'],
-" \   'typescript': ['tslint', 'prettier']
-" \}
-" let g:ale_fix_on_save = 1
-" let g:ale_javascript_prettier_use_local_config = 1
+nnoremap <Leader>fi :YcmCompleter FixIt
 
 " ################################################
 " CTRLP
@@ -104,6 +78,7 @@ let g:jsx_ext_required = 2
 
 let g:ycm_add_preview_to_completeopt = 0
 
+
 autocmd BufNewFile,BufRead *.ts setlocal filetype=typescript
 
 " vim-prettier configuration
@@ -114,20 +89,3 @@ let g:prettier#config#bracket_spacing = 'false'
 let g:prettier#config#arrow_parens = 'avoid'
 let g:prettier#config#semi = 'false'
 
-
-
-" " Go configurations
-" let g:go_highlight_build_constraints = 1
-" let g:go_highlight_extra_types = 1
-" let g:go_highlight_fields = 1
-" let g:go_highlight_functions = 1
-" let g:go_highlight_methods = 1
-" let g:go_highlight_operators = 1
-" let g:go_highlight_structs = 1
-" let g:go_highlight_types = 1
-" let g:go_auto_type_info = 1
-" " Go filetype configurations
-" au FileType go set noexpandtab
-" au FileType go set shiftwidth=4
-" au FileType go set softtabstop=4
-" au FileType go set tabstop=4

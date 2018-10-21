@@ -58,7 +58,8 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 nnoremap <Leader>gd :YcmCompleter GoToDefinition<CR>
 nnoremap <Leader>rn :YcmCompleter RefactorRename 
-nnoremap <Leader>fi :YcmCompleter FixIt
+nnoremap <Leader>fi :YcmCompleter FixIt<CR>
+nnoremap <Leader>s :Ack --ignore-dir={build,dist,node_modules}   ./<Left><Left><Left><Left>
 
 " ################################################
 " CTRLP

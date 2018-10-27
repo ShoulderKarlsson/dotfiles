@@ -1,6 +1,4 @@
 filetype off
-" Amazing comment
-
 
 " ################################################
 " Vundle
@@ -19,6 +17,8 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'valloric/youcompleteme'
 Plugin 'mileszs/ack.vim'
+Plugin 'easymotion/vim-easymotion'
+
 
 " ################################################
 " Javascript
@@ -29,6 +29,7 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'peitalin/vim-jsx-typescript'
 Plugin 'alvan/vim-closetag'
 Plugin 'prettier/vim-prettier', {'do': 'npm install'}
+Plugin 'joshdick/onedark.vim'
 call vundle#end()
 
 " ################################################
@@ -44,13 +45,13 @@ set expandtab
 set autoindent
 set wildmenu
 set noswapfile
-syntax enable
+syntax on
+colorscheme onedark
 
 " ################################################
 " Custom bindings
 " ################################################
 let mapleader = ','
-nmap <Leader>c gcc
 nmap <C-b> :NERDTreeToggle<CR>
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>

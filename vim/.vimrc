@@ -17,8 +17,8 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'valloric/youcompleteme'
 Plugin 'mileszs/ack.vim'
-Plugin 'easymotion/vim-easymotion'
-
+Plugin 'mhartington/oceanic-next'
+Plugin 'fatih/vim-go'
 
 " ################################################
 " Javascript
@@ -29,7 +29,6 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'peitalin/vim-jsx-typescript'
 Plugin 'alvan/vim-closetag'
 Plugin 'prettier/vim-prettier', {'do': 'npm install'}
-Plugin 'joshdick/onedark.vim'
 call vundle#end()
 
 " ################################################
@@ -37,6 +36,7 @@ call vundle#end()
 " ################################################
 filetype plugin indent on
 set relativenumber
+set cursorline
 set nocompatible
 set tabstop=2
 set softtabstop=2
@@ -46,7 +46,9 @@ set autoindent
 set wildmenu
 set noswapfile
 syntax on
-colorscheme onedark
+set laststatus=2
+let &t_ut=''
+colorscheme OceanicNext
 
 " ################################################
 " Custom bindings
@@ -57,16 +59,24 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-nnoremap <Leader>gd :YcmCompleter GoToDefinition<CR>
+nnoremap <Leader>gd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nnoremap <Leader>gt :YcmCompleter GoTo<CR>
 nnoremap <Leader>rn :YcmCompleter RefactorRename 
 nnoremap <Leader>fi :YcmCompleter FixIt<CR>
 nnoremap <Leader>s :Ack --ignore-dir={build,dist,node_modules}   ./<Left><Left><Left><Left>
 
+" Go leader bindings
+nnoremap <Leader>gr :GoRun main.go<CR>
+nnoremap <Leader>gec :GoErrCheck<CR>
+let g:go_fmt_command = "goimports"
+
+" Fuzzy search over buffers
+nnoremap <Leader>f :CtrlPBuffer<CR>
 " ################################################
 " CTRLP
 " ################################################
 let g:ctrlp_custom_ignore = {
- \ 'dir':  '\.git$\|\.yardoc\|node_modules\|log\|tmp|build|dist|bundle$',
+ \ 'dir':  '\.git$\|\.yardoc\|node_modules\|log\|tmp|build|dist|bundle|venv$',
  \ 'file': '\.so$\|\.dat$|\.DS_Store$'
  \ }
 
@@ -78,8 +88,7 @@ let g:closetag_shortcut = '>'
 
 let g:jsx_ext_required = 2
 
-let g:ycm_add_preview_to_completeopt = 0
-
+let g:ycm_autoclose_preview_window_after_completion=1
 
 autocmd BufNewFile,BufRead *.ts setlocal filetype=typescript
 
@@ -91,3 +100,7 @@ let g:prettier#config#bracket_spacing = 'false'
 let g:prettier#config#arrow_parens = 'avoid'
 let g:prettier#config#semi = 'false'
 
+
+
+" We dont want to se pyc files i the tree
+let NERDTreeIgnore = ['\.pyc$', '__pycache__$']

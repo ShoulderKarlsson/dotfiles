@@ -17,8 +17,9 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'valloric/youcompleteme'
 Plugin 'mileszs/ack.vim'
-Plugin 'mhartington/oceanic-next'
+Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'fatih/vim-go'
+Plugin 'itchyny/lightline.vim'
 
 " ################################################
 " Javascript
@@ -48,7 +49,8 @@ set noswapfile
 syntax on
 set laststatus=2
 let &t_ut=''
-colorscheme OceanicNext
+set background=dark
+colorscheme PaperColor
 
 " ################################################
 " Custom bindings
@@ -66,9 +68,13 @@ nnoremap <Leader>fi :YcmCompleter FixIt<CR>
 nnoremap <Leader>s :Ack --ignore-dir={build,dist,node_modules}   ./<Left><Left><Left><Left>
 
 " Go leader bindings
-nnoremap <Leader>gr :GoRun main.go<CR>
 nnoremap <Leader>gec :GoErrCheck<CR>
 let g:go_fmt_command = "goimports"
+
+
+" Easy search
+map <space> /
+
 
 " Fuzzy search over buffers
 nnoremap <Leader>f :CtrlPBuffer<CR>

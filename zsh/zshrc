@@ -1,0 +1,16 @@
+source ~/Documents/scripts/antigen.zsh
+antigen use oh-my-zsh
+
+# antigen theme refined
+# antigen theme candy
+antigen theme geometry-zsh/geometry
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+antigen apply
+
+export PATH="$PATH:$HOME/go/bin"
+
+
+GEOMETRY_SYMBOL_PROMPT="$"                  # default prompt symbol
+
+export EDITOR=vim

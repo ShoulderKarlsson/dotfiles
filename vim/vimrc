@@ -14,19 +14,12 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
 Plugin 'jiangmiao/auto-pairs'
-Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'valloric/youcompleteme'
-Plugin 'mileszs/ack.vim'
 Plugin 'morhetz/gruvbox'
 Plugin 'fatih/vim-go'
 Plugin 'itchyny/lightline.vim'
+Plugin 'junegunn/fzf.vim'
 
-" Plugin 'pangloss/vim-javascript'
-" Plugin 'mxw/vim-jsx'
-" Plugin 'leafgarland/typescript-vim'
-" Plugin 'peitalin/vim-jsx-typescript'
-" Plugin 'alvan/vim-closetag'
-" Plugin 'prettier/vim-prettier', {'do': 'npm install'}
 call vundle#end()
 filetype plugin indent on
 
@@ -70,9 +63,12 @@ nnoremap <Leader>gt :YcmCompleter GoTo<CR>
 nnoremap <Leader>rn :YcmCompleter RefactorRename 
 nnoremap <Leader>fi :YcmCompleter FixIt<CR>
 
+" FZF
+" Search files in project
+nnoremap <Leader>sf :Files ./<CR>
+nnoremap <Leader>sl :Ag 
 
-" Ack
-nnoremap <Leader>s :Ack --ignore-dir={build,dist,node_modules}   ./<Left><Left><Left><Left>
+
 
 " Easy search
 map <space> /

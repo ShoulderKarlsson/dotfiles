@@ -1,13 +1,34 @@
 source ~/Documents/scripts/antigen.zsh
-antigen use oh-my-zsh
 
+
+
+
+
+antigen use oh-my-zsh
 antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle mafredri/zsh-async
-antigen bundle sindresorhus/pure
+# antigen bundle mafredri/zsh-async
+# antigen bundle sindresorhus/pure
 
 antigen apply
 
 export PATH="$PATH:$HOME/go/bin"
 
-
 export EDITOR=vim
+
+autoload -Uz add-zsh-hook
+load_promp() {
+  /home/shldr/Development/go-term/go-term
+}
+add-zsh-hook precmd load_promp
+prompt_symbol='$'
+PROMPT='${prompt_symbol} '
+
+
+fd() {
+  local dir
+  dir=$(find ${1:-.} -path '*/\.*' -prune \
+                  -o -type d -print 2> /dev/null | fzf +m) &&
+  cd "$dir"
+}
+
+

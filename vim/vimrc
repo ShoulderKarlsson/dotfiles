@@ -41,9 +41,19 @@ set background=dark
 colorscheme gruvbox
 
 
-" easer movement no wrapped lines
+" sane movement on wrapped line
 nnoremap j gj
 nnoremap k gk
+
+
+
+" move lines
+vnoremap <C-j> :m '>+1<CR>gv=gv
+vnoremap <C-k> :m '<-2<CR>gv=gv
+nnoremap <C-K> :m .-2<CR>==
+nnoremap <C-J> :m .+1<CR>==
+inoremap <C-k> <Esc>:m .-2<CR>==gi
+inoremap <C-j> <Esc>:m .+1<CR>==gi
 
 " leader mapping
 let mapleader = ','
@@ -52,10 +62,10 @@ let mapleader = ','
 nmap <C-b> :NERDTreeToggle<CR>
 
 " Easier split navigations
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+" nnoremap <C-J> <C-W><C-J>
+" nnoremap <C-K> <C-W><C-K>
+" nnoremap <C-L> <C-W><C-L>
+" nnoremap <C-H> <C-W><C-H>
 
 " You Complete me
 nnoremap <Leader>gd :YcmCompleter GoToDefinitionElseDeclaration<CR>
@@ -65,7 +75,7 @@ nnoremap <Leader>fi :YcmCompleter FixIt<CR>
 
 " FZF
 " Search files in project
-nnoremap <Leader>sf :Files ./<CR>
+nnoremap <C-P> :Files<CR>
 nnoremap <Leader>sl :Ag 
 
 

@@ -1,0 +1,6 @@
+rofi.font:		terminus 10
+rofi.line-padding: 4
+rofi.hide-scrollbar
+rofi.color-window: #1B1727, #4c9882, #1B1727
+rofi.color-normal: #1B1727, #c0a79a, #1B1727, #783e57, #c0a79a
+rofi.color-active: #615772, #c0a79a, #1B1727, #783e57, #c0a79a

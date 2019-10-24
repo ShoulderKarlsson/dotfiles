@@ -24,7 +24,7 @@ module-margin = 4
 font-0 = NotoSans-Regular:size=8;-1
 
 modules-left = i3
-modules-right = wlan alsa battery date
+modules-right = wlan alsa battery keyboard date
 
 [module/i3]
 type = internal/i3
@@ -217,6 +217,12 @@ bar-volume-fill-font = 2
 bar-volume-empty = ─
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
+
+[module/keyboard]
+type = custom/script
+exec = setxkbmap -print | awk -F"+" '/xkb_symbols/ {print $2}'
+tail = true
+
 
 ; vim:ft=dosini
 
